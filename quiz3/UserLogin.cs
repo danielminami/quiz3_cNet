@@ -18,7 +18,8 @@ namespace quiz3 {
         private void button1_Click(object sender, EventArgs e) {
 
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = @"Data Source=localhost\SQLEXPRESS; initial catalog=STORE_PRODUCTS; integrated security=true";
+            //conn.ConnectionString = @"Data Source=localhost\SQLEXPRESS; initial catalog=STORE_PRODUCTS; integrated security=true";
+            conn.ConnectionString = @"Data Source=LAPTOP-C9LG4BD2; initial catalog=STORE_PRODUCTS; integrated security=true";
             conn.Open();
 
             SqlCommand SQLcmd = new SqlCommand("spLogin", conn);
