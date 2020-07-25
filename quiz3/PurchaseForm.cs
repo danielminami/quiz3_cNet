@@ -13,7 +13,7 @@ namespace quiz3
 {
     public partial class PurchaseForm : Form
     {
-        private const string STORE_PRODUCT_DB = "Data Source=LAPTOP-C9LG4BD2; initial catalog=STORE_PRODUCTS; integrated security=true";
+        private const string STORE_PRODUCT_DB = @"Data Source=LAPTOP-C9LG4BD2; initial catalog=STORE_PRODUCTS; integrated security=true";
         public PurchaseForm()
         {
             InitializeComponent();
