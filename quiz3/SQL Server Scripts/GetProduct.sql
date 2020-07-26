@@ -1,19 +1,24 @@
-﻿CREATE procedure dbo.GetProduct
+﻿USE STORE_PRODUCTS
+GO
+CREATE PROCEDURE dbo.GetProduct
 (
---TODO: parameters for other search criteria
-@prod_name varchar(25) NULL,
-@prod_sale bit = NULL
+@productName VARCHAR(25) NULL,
+@isOnSale BIT = NULL,
+@productCategory VARCHAR(25) = NULL,
+@productDescription VARCHAR(200) = NULL
 )
 AS
 BEGIN
-	SELECT [PRD_CATEGORY]
-		  ,[PRD_NAME]
-		  ,[PRD_DESCRIPTION]
-		  ,[PRD_SALE]
-		  ,[PRD_PRICE]
-	  FROM [STORE_PRODUCTS].[dbo].[PRODUCTS]
-	where 
-		PRD_NAME like '%' + ISNULL(@prod_name, PRD_NAME) + '%'
-		AND PRD_SALE = ISNULL(@prod_sale, PRD_SALE)
+	SELECT [PRD_CATEGORY] 'Category'
+			,[PRD_NAME] 'Product Name'
+			,[PRD_DESCRIPTION] 'Description'
+			,[PRD_SALE] 'Available'
+			,[PRD_PRICE] 'Price'
+	FROM [dbo].[PRODUCTS]
+	WHERE 
+		PRD_NAME LIKE '%' + ISNULL(@productName, PRD_NAME) + '%'
+		AND PRD_SALE = ISNULL(@isOnSale, PRD_SALE)
+		AND PRD_CATEGORY LIKE '%' + ISNULL(@productCategory, PRD_CATEGORY)  + '%'
+		AND PRD_DESCRIPTION LIKE '%' + ISNULL(@productDescription, PRD_DESCRIPTION)  + '%'
 END
 GO
