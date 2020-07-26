@@ -2,10 +2,10 @@
 GO
 CREATE PROCEDURE dbo.GetProduct
 (
-@productName VARCHAR(25) NULL,
-@isOnSale BIT = NULL,
-@productCategory VARCHAR(25) = NULL,
-@productDescription VARCHAR(200) = NULL
+	@productName VARCHAR(25) NULL,
+	@isOnSale BIT = NULL,
+	@productCategory VARCHAR(25) = NULL,
+	@productDescription VARCHAR(200) = NULL
 )
 AS
 BEGIN

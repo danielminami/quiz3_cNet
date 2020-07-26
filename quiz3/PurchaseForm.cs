@@ -16,9 +16,13 @@ namespace quiz3
             ShowSubtotalCart();
         }
 
+        /// <summary>
+        /// Search using the criteria and fill the result into the results grid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnSearch_Click(object sender, EventArgs e)
         {
-            //Call method to search and pass parameter
             SqlConnection cn = new SqlConnection(STORE_PRODUCT_DB);
             SqlDataAdapter cmd = new SqlDataAdapter(GET_PRODUCT, cn);
 
@@ -45,6 +49,11 @@ namespace quiz3
             GridSearchResults.DataSource = dt;
         }
 
+        /// <summary>
+        /// Add selected items to the Cart and update subtotal
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnAddToCart_Click(object sender, EventArgs e)
         {
             if (GridSearchResults.SelectedRows.Count > 0 && numQuantity.Value > 0)
@@ -84,6 +93,11 @@ namespace quiz3
             }
         }
 
+        /// <summary>
+        /// Show a message with the total purchase
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnPurchase_Click(object sender, EventArgs e)
         {
             if (GridCart.Rows.Count > 0)
@@ -102,6 +116,11 @@ namespace quiz3
             }
         }
 
+        /// <summary>
+        /// Clear the cart and update subtotal
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnClearCart_Click(object sender, EventArgs e)
         {
             GridCart.DataSource = null;
@@ -109,6 +128,9 @@ namespace quiz3
             lblSubtotalAmount.Text = string.Empty;
         }
 
+        /// <summary>
+        /// show and update subtotal
+        /// </summary>
         private void ShowSubtotalCart()
         {
             lblSubtotalAmount.Text = String.Format(" {0:C}", subtotalPurchase);

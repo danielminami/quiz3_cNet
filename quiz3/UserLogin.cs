@@ -12,6 +12,11 @@ namespace quiz3
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Validate User and Password
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button1_Click(object sender, EventArgs e) {
 
             SqlConnection conn = new SqlConnection(STORE_PRODUCT_DB);
