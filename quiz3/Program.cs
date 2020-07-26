@@ -16,7 +16,6 @@ namespace quiz3
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PurchaseForm());
             Application.Run(new UserLogin());
         }
     }
